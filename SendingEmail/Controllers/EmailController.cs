@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MimeKit.Text;
+using SendingEmail.Models.DTOs;
+using SendingEmail.Services;
 
 namespace SendingEmail.Controllers
 {
@@ -22,7 +24,7 @@ namespace SendingEmail.Controllers
         public IActionResult SendEmail(EmailDto request)
         {
             
-            _emailService.SenEmail(request);
+            _emailService.SendEmail(request);
             return Ok("An Email Was Sent To: " + request.To);
         }
     }
